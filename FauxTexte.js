@@ -1,7 +1,20 @@
 import patronymiques  from './donnees/patronymes.js';
 import {masculins, feminins}  from './donnees/prenoms.js';
 import {types as tVoies, odonymiques as nVoies}  from './donnees/voirie.js';
-import {insee_p, departement_p, region_p, nombreVilles, ville,inseeCommune, inseePostal, communeInsee, departementNom, communes, communesRegionales, communesDepartementales} from './outils/territoires.js';
+import {
+    insee_p,
+    departement_p,
+    region_p,
+    nombreVilles,
+    ville,
+    inseeCommune,
+    inseePostal,
+    communeInsee,
+    departementNom,
+    communes,
+    communesRegionales,
+    communesDepartementales
+} from './outils/territoires.js';
 import {europe, asie, afrique, amerique, oceanie} from './donnees/pays.js';
 import {validationDate, jCalendaire, dureeJour, dureeSemaine, triObjetsDate, numeroSecuriteSociale, numeroSecuriteSociale99}  from './donnees/dates.js';
 import dictionnaire  from './donnees/liste00.js';
