@@ -22,13 +22,6 @@ const faux = new FauxTexte("Louison Bobet");
 
 ## Méthodes
 
-### FauxTexte.liste(entier)
-Retourne une chaînes de caractères.
-
-```javascript
-const dixMots = faux.liste(10);
-```
-
 ### FauxTexte.mots(entier)
 Retourne un tableau de chaînes de caractères.
 
@@ -60,8 +53,8 @@ Retourne une chaîne de caractères.
 *entier* doit être supérieur ou égal à zéro et inférieur ou égal à cent.
 La valeur par défaut est zéro.
 ```javascript
-const nombres = [1,3,5,7,8];
-const lettres = nombres.map(x => faux.nombreLettres(x));
+const nombres = [7,18,29,54,98];
+const lettres = nombres.map(faux.nombreLettres);
 ```
 
 ### FauxTexte.generateurListe(tableau)
@@ -69,7 +62,7 @@ Retourne un générateur à partir d’une liste.
 ```javascript
 const listeMarques = ["Alfa Romeo","Audi","BMW","Citroën","Dacia","DS"];
 const generateurMarques = faux.generateurListe(listeMarques);
-const dixMarques = Array.from({length:10}, generateurMarques());
+const dixMarques = Array.from({length:10}, () => generateurMarques());
 console.log(dixMarques);
 
 ```
@@ -77,7 +70,7 @@ console.log(dixMarques);
 Retourne un générateur de valeurs comprises entre *entier1* et *entier2*.
 ```javascript
     const generateurNombreFournisseurs = faux.generateurValeur(10, 50);
-    const dixFournisseurs = Array.from({length:10}, generateurNombreFournisseurs());
+    const dixFournisseurs = Array.from({length:10}, () => generateurNombreFournisseurs());
     console.log(dixFournisseurs);   
 ```
 
@@ -108,8 +101,15 @@ const prenomAssureur = faux.prenomMasculin();
 ### FauxTexte.prenom()
 Retourne un objet *prenom*.
 ```javascript
-const prenom = faux.prenom();
-const {h,f} = prenom;
+const {homme,femme} = faux.prenom();
+```
+
+
+### FauxTexte.patronyme()
+Retourne une chaîne de caractères.
+```javascript
+const nomDeFamille = faux.patronyme();
+
 ```
 
 ### FauxTexte.patronymes(entier)
@@ -119,11 +119,10 @@ const nomsDeFamille = faux.patronymes(10);
 
 ```
 
-### FauxTexte.patronyme()
+### FauxTexte.typeVoie()
 Retourne une chaîne de caractères.
 ```javascript
-const nomDeFamille = faux.patronyme();
-
+const voie = faux.typeVoie();
 ```
 
 ### FauxTexte.typesVoies(entier)
@@ -133,21 +132,17 @@ const voies = faux.typesVoies(10);
 
 ```
 
-### FauxTexte.typeVoie()
-Retourne une chaîne de caractères.
+### FauxTexte.nomVoie()
+Retourne un objet.
 ```javascript
-const voie = faux.typeVoie();
+const {nom, booleen} = faux.nomVoie();
 ```
+Certaines dénomination de voie ne nécessitent pas de mention de type de voie. C'est le cas de *Grand’Rue* ou de *Grande Rue*. Dans de tels cas, la valeur de booleen est false.
 
 ### FauxTexte.nomsVoies(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const nomsDeVoie = faux.nomsVoies(10);
-```
-### FauxTexte.nomVoie()
-Retourne une chaîne de caractères.
-```javascript
-const nom = faux.nomVoie();
 ```
 
 ### FauxTexte.adresse()
@@ -156,21 +151,21 @@ Retourne un objet *adresse*.
 const domicile = faux.adresse();
 const {numero, nom, booleen, type, chaine} = domicile;
 ```
-
-*numero* Numéro de voie, chaîne de caractères.  
-*nom* Nom de voie, chaîne de caractères.  
-*chaine* adresse, chaîne de caractères.  
+*numero* numéro de voie, chaîne de caractères.  
+*nom* nom de voie, chaîne de caractères.  
+*chaine* adresse, chaîne de caractères.
+*booleen* false ou true. Cf *nomVoie*.
 
 ### FauxTexte.aleaCentaine()
-Retourne une valeur entière comprise entre 1 et 101.
+Retourne une valeur entière comprise entre *0* et *99*.
 ```javascript
-const pourcentages = Array.from({length:10}, faux.aleaCentaine());
+const pourcentages = Array.from({length:10}, () => faux.aleaCentaine());
 ```
 
 ### FauxTexte.aleaMillier()
-Retourne une valeur entière comprise entre 1 et 1001.
+Retourne une valeur entière comprise entre *0* et *999*.
 ```javascript
-const kilometrages = Array.from({length:10}, faux.aleaMillier() * 1000);
+const kilometrages = Array.from({length:250}, () => faux.aleaMillier() * 1000);
 ```
 
 ### FauxTexte.zeroUn()
@@ -185,8 +180,7 @@ Retourne un objet *ville*.
 const domicile = faux.nomVille();
 const {nom, codeInsee, codeCommune, codePostal, numeroDepartement, nomDepartement, nomRegion, isoRegion, regionAlphabetique, departements} = domicile;
 ```
-
-chaîne de caractères :
+Chaînes de caractères :
 * *nom*
 * *codeInsee*
 * *codeCommune*
@@ -201,7 +195,7 @@ chaîne de caractères :
 ### FauxTexte.nomsVilles(entier)
 Retourne un tableau d’objets *ville*.
 ```javascript
-const villesFournisseurs = faux.nomsVilles(10);
+const villesFournisseurs = faux.nomsVilles(20);
 ```
 
 ### FauxTexte.communesDepartement(departement)
@@ -224,30 +218,34 @@ const communesRegionales = faux.communesRegionales(domicile.isoRegion);
 Retourne une valeur aléatoire comprise entre *0* et *1* et permet de réorganiser un tableau en indexant chacun de ses éléments.
 
 ```javascript
-	const tableauMarques = donnees('marques');
-	const listeMarques = ["Alfa Romeo","Audi","BMW","Citroën","Dacia","DS"];
-	const nouvelleListeMarques = listeMarques.map(x => ({tri: faux.melangeur(), valeur:x})).sort((a,b) => a.tri - b.tri).map(x => x.valeur);
-	console.log(listeMarques);
-	console.log(nouvelleListemarques);
+const magasins = ['Bordeaux', 'Lille', 'Lyon',  'Marseille', 'Montpellier', 'Nantes', 'Nice',  'Paris', 'Rennes', 'Strasbourg', 'Toulouse'];
+const l1 = magasins.map(x => ({tri: faux.melangeur(), valeur:x})).sort((a,b) => a.tri - b.tri).map(x => x.valeur);
+console.log(l1);
+
+const l2 = magasins.map(x => ({tri: faux.melangeur(), valeur:x})).sort((a,b) => a.tri - b.tri).map(x => x.valeur);
+console.log(l2);
+
+const l3 = magasins.map(x => ({tri: faux.melangeur(), valeur:x})).sort((a,b) => a.tri - b.tri).map(x => x.valeur);
+console.log(l3);
 ```
 
 ### FauxTexte.generateurDatePlancherPlafond(chaine1, chaine2)
 Retourne l’objet suivant {plancher:anneePlancher, generateur:generateurJourCalendaire, dureeJour:dureeJour}
 ```javascript
-const {generateur:generateurDateConstitutionSociete} = fauxTexte.generateurDatePlancherplafond("1.1.2000", "31.12.2010");
+const {generateur:generateurDateConstitutionSociete} = faux.generateurDatePlancherplafond("1.1.2000", "31.12.2010");
 ```
 
 ### FauxTexte.generateurDateDepuis(chaine)
 Retourne l’objet suivant {plancher:anneePlancher, generateur:generateurJourCalendaire, dureeJour:dureeJour}
 
 ```javascript
-const {generateur:generateurDateConstitutionSociete} = fauxTexte.generateurDatePlancherplafond("26/05/1993");
+const {generateur:generateurDateConstitutionSociete} = faux.generateurDatePlancherplafond("26/05/1993");
 ```
 
 ### FauxTexte.jourCalendaire(anneePlancher=1945, anneePlafond=2020)
 Retourne un objet *Date*.
 ```javascript
-const dateConstitutionSociete = fauxTexte.jourCalendaire(2000,2005);
+const dateConstitutionSociete = faux.jourCalendaire(2000,2005);
 console.log(dateConstitutionsociete.toLocaleString('fr-FR', {day:'numeric', month:'numeric', year:'numeric'}));
 
 ```
