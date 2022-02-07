@@ -55,7 +55,8 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
     np = graine;
     const nombrePremier = nombresPremiers(np);
 
-    const graineActuelle = () => ({graine: graine, seed: seed});
+    //const graineActuelle = () => ({graine: graine, seed: seed});
+    const graineActuelle = () => seed;
 
     const motsParPhrase = {minimum: 6, maximum: 12};
     const phraseParParagraphe = {minimum: 3, maximum: 6};
