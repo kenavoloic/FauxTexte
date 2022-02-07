@@ -213,6 +213,25 @@ Retourne un tableau des noms de communes du département.
 const domicile = nomVille();
 const communesRegionales = faux.communesRegionales(domicile.isoRegion);
 ```
+Liste des régions :
+* *fr-ara*
+* *fr-bfc*
+* *fr-bre*
+* *fr-cor*
+* *fr-cvl*
+* *fr-ges*
+* *fr-guf*
+* *fr-gua*
+* *fr-hdf*
+* *fr-idf*
+* *fr-mtq*
+* *fr-naq*
+* *fr-nor*
+* *fr-occ*
+* *fr-pac*
+* *fr-pdl*
+* *fr-lre*
+* *fr-may*
 
 ### FauxTexte.melangeur()
 Retourne une valeur aléatoire comprise entre *0* et *1* et permet de réorganiser un tableau en indexant chacun de ses éléments.
