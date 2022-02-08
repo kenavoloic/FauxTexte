@@ -368,11 +368,6 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	return Array(formatagePhrase(aleatoires));
     };
 
-    const paragraphe = () => {
-	let iterations = aleaParagraphes();
-	let retour = Array.from({length:iterations}, () => phrase());
-	return retour.join(" ");
-    };
 
     const phrases = nombre => {
 	nombre = isNaN(nombre) ? 6 : nombre;
@@ -380,6 +375,13 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	return retour;
     };
 
+    const paragraphe = () => {
+	let iterations = aleaParagraphes();
+	let retour = Array.from({length:iterations}, () => phrase());
+	//return retour.join(" ");
+	return [...retour];
+    };
+    
     const paragraphes = nombre => {
 	nombre = isNaN(nombre) ? 1 : nombre;
 	return Array.from({length:nombre}, () => paragraphe());
@@ -399,7 +401,7 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 
     return {
 	graineActuelle,
-	liste,
+	//liste,
 	paragraphe, paragraphes,
 	phrase, phrases, 
 	mot, mots,

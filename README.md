@@ -203,7 +203,7 @@ Retourne un tableau des noms de communes du département.
 const domicile = nomVille();
 const communesRegionales = faux.communesRegionales(domicile.isoRegion);
 ```
-Voici la liste des régions métropolitaines et ultramarines : Auvergne-Rhône-Alpes, *fr-ara* ; Bourgogne-Franche-Comté, *fr-bfc* ; Bretagne, *fr-bre* ; Corse, *fr-cor* ; Centre-Val de Loire, *fr-cvl* ; Grand-Est,*fr-ges* ; Guyane,*fr-guf* ; Guadeloupe, *fr-gua* ; Hauts-de-France, *fr-hdf* ; Île-de-France, *fr-idf* ; Martinique, *fr-mtq* ; Nouvelle-Aquitaine, *fr-naq* ; Normandie, *fr-nor* ; Occitanie, *fr-occ* ; Provence-Alpes-Côte d’Azur, *fr-pac* ; Pays de la Loire, *fr-pdl* ; La Réunion, *fr-lre* ; Mayotte, *fr-may*.
+Voici la liste des régions métropolitaines et ultramarines : Auvergne-Rhône-Alpes, *fr-ara* ; Bourgogne-Franche-Comté, *fr-bfc* ; Bretagne, *fr-bre* ; Corse, *fr-cor* ; Centre-Val de Loire, *fr-cvl* ; Grand-Est, *fr-ges* ; Guyane, *fr-guf* ; Guadeloupe, *fr-gua* ; Hauts-de-France, *fr-hdf* ; Île-de-France, *fr-idf* ; Martinique, *fr-mtq* ; Nouvelle-Aquitaine, *fr-naq* ; Normandie, *fr-nor* ; Occitanie, *fr-occ* ; Provence-Alpes-Côte d’Azur, *fr-pac* ; Pays de la Loire, *fr-pdl* ; La Réunion, *fr-lre* ; Mayotte, *fr-may*.
 
 ### Dates
 #### FauxTexte.generateurDatePlancherPlafond(chaine1, chaine2)
@@ -267,3 +267,5 @@ console.log(l3);
 ```javascript
 const seed = faux.graineActuelle();
 ```
+
+### Prédicats
