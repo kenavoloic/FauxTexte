@@ -210,9 +210,10 @@ Chaînes de caractères :
 * *codeCommune*
 * *codePostal* 
 * *numeroDepartement*
+* *nomDepartement*
 * *nomRegion*
-* *isoRegion*
-* *regionAlphabetique*
+* *a*
+* *pays*
 
 *departements* tableau des départements constituant la même région. Chaînes de caractères.
 
@@ -238,6 +239,35 @@ const listeDesCommunes = faux.listeVilles();
 console.log(listeDescommunes.length);
 ```
 
+#### FauxTexte.listeDepartements()
+Retourne un tableau d'objets.
+```javascript
+const listeDepartements = faux.listeDepartements();
+const {depCode, depNom} = listeDepartements[0];
+```
+
+
+#### FauxTexte.listeRegions()
+Retourne un tableau d'objets.
+```javascript
+const listeRegions = faux.listeRegions();
+const {regionNom, regionIso} = listeRegions[0];
+```
+
+
+#### FauxTexte.departementNom(chaine)
+Retourne une chaine. 
+```javascript
+const vienne = faux.departementNom('86');
+const corseDuSud = faux.departementNom('2a');
+const hauteCorse = faux.departementNom('2b');
+```
+
+#### FauxTexte.communesDepartementales(chaine)
+Retourne un tableau de chaînes.
+```javascript
+const communes2a = faux.communesDepartementales('2a');
+```
 
 #### FauxTexte.communesDepartement(departement)
 Retourne un tableau des noms de communes du département.
@@ -255,7 +285,6 @@ Retourne un tableau des noms de communes d’une région.
 const domicile = nomVille();
 const communesRegionales = faux.communesRegionales(domicile.isoRegion);
 ```
-Voici la liste des régions métropolitaines et ultramarines : Auvergne-Rhône-Alpes, *fr-ara* ; Bourgogne-Franche-Comté, *fr-bfc* ; Bretagne, *fr-bre* ; Corse, *fr-cor* ; Centre-Val de Loire, *fr-cvl* ; Grand-Est, *fr-ges* ; Guyane, *fr-guf* ; Guadeloupe, *fr-gua* ; Hauts-de-France, *fr-hdf* ; Île-de-France, *fr-idf* ; Martinique, *fr-mtq* ; Nouvelle-Aquitaine, *fr-naq* ; Normandie, *fr-nor* ; Occitanie, *fr-occ* ; Provence-Alpes-Côte d’Azur, *fr-pac* ; Pays de la Loire, *fr-pdl* ; La Réunion, *fr-lre* ; Mayotte, *fr-may*.
 
 ### Dates
 #### FauxTexte.generateurDatePlancherPlafond(chaine1, chaine2)

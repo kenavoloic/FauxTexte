@@ -1,8 +1,7 @@
 import {inseeCommune, communeInsee} from '../donnees/inseeCommune.js';
 import inseePostal from '../donnees/inseePostal.js';
 import prepositions from '../donnees/prepositions.js';
-//import listeDR from '../donnees/listeDR.js';
-import listeDR from '../donnees/departementsRegions.js';
+import {listeDR, listeRegions, listeDepartements} from '../donnees/departementsRegions.js';
 
 const listeInsee = [...inseeCommune.keys()];
 const listeCommunes = inseeCommune.values();
@@ -20,10 +19,6 @@ const ultramarins = ['971','972','973','974','976'];
 const corsica = ['2a','2b'];
 
 const regions = [...Array.from(listeDR.values()).reduce((retour, {regionIso}) => retour.add(regionIso), new Set())];
-const listeRegions = Array.from(listeDR.values()).reduce((retour, {depCode, regionIso}) => {
-    (retour[regionIso] || (retour[regionIso] = [])).push(depCode);
-    return retour;
-}, {});
 
 const _tableDepartementRegion = new Map([...listeDR.values()].reduce((retour, {depCode, regionIso}) => [...retour, [depCode, regionIso]], []));
 
@@ -96,14 +91,6 @@ const choixZone = ft => ({determinant, valeur}) => {
     return retour;
 };
 
-const ciudad = (_codeInsee, codeInseePays = '00000') => {
-    let chaine = String(_codeInsee);
-    let codeInsee = inseeCommune.has(chaine) ? chaine : defaut.ville;
-    let nom = inseeCommune.get(codeInsee);
-    let postal = inseePostal.get(codeInsee);
-    let matricule = codeInsee.startsWith('97') ? codeInsee.substr(0,3) : codeInsee.substr(0,2);
-    let departement = departement_p(matricule);
-}
 
 const ville = (codeInsee, codeInseePays = '00000') => {
     codeInsee = String(codeInsee);
@@ -114,10 +101,8 @@ const ville = (codeInsee, codeInseePays = '00000') => {
     let departement = departement_p(matricule);
     let codeCommune = codeInsee.slice(2,5).padStart(3, '0');
     let preposition = prepositions.has(codeInsee) ? prepositions.get(codeInsee).a : null;
-    //let dr = listeDR.get(departement);
+
     let dr = listeDR.has(departement) ? listeDR.get(departement) : listeDR.get(defaut.depCode);
-    //console.log('territoires ',dr.depCode, codeCommune);
-    //return {nom:nom, codeInsee:codeInsee, codeCommune:codeCommune, codePostal:postal, numeroDepartement:dr.depCode, nomDepartement:dr.depNom, nomRegion:dr.regionNom, isoRegion:dr.regionIso, a:preposition, pays:codeInseePays};
     return {nom:nom, codeInsee:codeInsee, codeCommune:codeCommune, codePostal:postal, numeroDepartement:matricule, nomDepartement:dr.depNom, nomRegion:dr.regionNom, isoRegion:dr.regionIso, a:preposition, pays:codeInseePays};
 };
 
@@ -126,5 +111,6 @@ export {
     nombreVilles, ville,
     inseeCommune, inseePostal, communeInsee,
     departementNom,
-    communes, communesRegionales, communesDepartementales
+    communes, communesRegionales, communesDepartementales,
+    listeDepartements, listeRegions
 }

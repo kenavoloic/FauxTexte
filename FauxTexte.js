@@ -2,7 +2,7 @@ import patronymiques  from './donnees/patronymes.js';
 import {masculins, feminins}  from './donnees/prenoms.js';
 import {types as tVoies, odonymiques as nVoies}  from './donnees/voirie.js';
 import {
-    insee_p,
+    insee_p, 
     departement_p,
     region_p,
     nombreVilles,
@@ -13,7 +13,9 @@ import {
     departementNom,
     communes,
     communesRegionales,
-    communesDepartementales
+    communesDepartementales,
+    listeDepartements as _listeDepartements,
+    listeRegions as _listeRegions
 } from './outils/territoires.js';
 import {europe, asie, afrique, amerique, oceanie} from './donnees/pays.js';
 import {validationDate, jCalendaire, dureeJour, dureeSemaine, triObjetsDate, numeroSecuriteSociale, numeroSecuriteSociale99}  from './donnees/dates.js';
@@ -29,8 +31,11 @@ const codesInsee = [...inseeCommune.keys()];
 const listeVilles = () => codesInsee;
 const getCodeInsee = envoi => codesInsee[envoi % codesInsee.length];
 
+const listeDepartements = () => _listeDepartements;
+const listeRegions = () => _listeRegions;
 
-const communesMinuscules = [...communeInsee.keys()];//.map(x => x.toLowerCase());
+
+const communesMinuscules = [...communeInsee.keys()];
 
 
 // Graine par défaut
@@ -48,8 +53,8 @@ const elements = dictionnaire.length;
 const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, maximum:6}, np = 9901) {
 
     seed = seed ? seed : graineParDefaut;
-    //const graine = seed ? reducteurGraine(seed) : reducteurGraine("Louison Bobet");//9901;
-    const graine = seed ? reducteurGraine(seed) : reducteurGraine(graineParDefaut);//9901;
+    //const graine = seed ? reducteurGraine(seed) : reducteurGraine("Louison Bobet");
+    const graine = seed ? reducteurGraine(seed) : reducteurGraine(graineParDefaut);
 
     //np = seed ? reducteurGraine(seed) : 23;
     np = graine;
@@ -415,12 +420,11 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	aleaCentaine, aleaMillier,
 	zeroUn,
 	nomVille, nomsVilles, //nomVilleAleatoire,
-	inseeVille,
-	ville, departementNom, communesDepartementales, communesRegionales, communes, rechercheCommune,
-	listeVilles,
+	inseeVille, ville,
+	departementNom, communesDepartementales, communesRegionales, communes, rechercheCommune,
+	listeVilles, listeDepartements, listeRegions,
 	jourCalendaire,
-
-	securiteSociale, securiteSociale99
+	//securiteSociale, securiteSociale99
     };
 };
 
