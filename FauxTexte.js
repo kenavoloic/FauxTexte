@@ -403,7 +403,7 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	phrase, phrases, 
 	mot, mots, phraseMots,
 	majusculePremiereLettre,
-	nombre, nombres, nombresUniques,
+	nombre, nombres, nombresUniques, melangeur,
 	nombreHexaAleatoire, chaineAlphanumerique,
 	generateurListe, generateurValeur, generateurDatePlancherPlafond, generateurDateDepuis,
 	nombreLettres,
@@ -419,7 +419,7 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	ville, departementNom, communesDepartementales, communesRegionales, communes, rechercheCommune,
 	listeVilles,
 	jourCalendaire,
-	melangeur,
+
 	securiteSociale, securiteSociale99
     };
 };

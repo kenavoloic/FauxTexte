@@ -222,6 +222,23 @@ Retourne un tableau d’objets *ville*.
 const villesFournisseurs = faux.nomsVilles(20);
 ```
 
+#### FauxTexte.inseeVille(matriculeInsee)
+Retourne l’objet *ville* correspondant au matricule INSEE de la commune. Si le matricule est erronné, l’objet *ville* retourné sera celui de la ville de bordeaux. Seules les communes françaises les plus peuplées sont référencées.
+```javascript
+const bordeaux = faux.inseeVille('33063');
+const toulouse = faux.inseeVille('31555');
+const gevreyChambertin = faux.inseeVille('21295');
+const floracTroisRivieres = faux.inseeVille('48061');
+```
+
+#### FauxTexte.listeVilles()
+Retourne un tableau contenant les matricules INSEE des communes référencées.
+```javascript
+const listeDesCommunes = faux.listeVilles();
+console.log(listeDescommunes.length);
+```
+
+
 #### FauxTexte.communesDepartement(departement)
 Retourne un tableau des noms de communes du département.
 *departement* est de type chaîne de caractères.
