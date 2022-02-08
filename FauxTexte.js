@@ -297,7 +297,7 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	let pf = aleaPonctuationsFortes();
 	let retour = temporaire.join(" ");
 
-	return retour+pf;
+	return `${retour}${pf}`;
     };
 
     // Genèse de chaînes alphanumériques
@@ -320,11 +320,17 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
     const alea16 = () => iterationHexadecimal(generateurHexadecimal.next().value);
 
     const nombreHexaAleatoire = (nombreChiffres=8) => {
-	nombreChiffres = isNaN(nombreChiffres) ? 8 : (nombreChiffres < 0 || nombreChiffres > 12) ?  8 : nombreChiffres;
-	let nombre16 = Array.from({length:nombreChiffres}, () => alea16()).join(" ");
-	let nombre = parseInt(nombre16, 16);
-	let valeur = `${nombre}`.slice(0, nombreChiffres);
-	return valeur.padStart(nombreChiffres,0);
+	nombreChiffres = isNaN(nombreChiffres) ? 8 : (nombreChiffres < 0 || nombreChiffres > 1024) ?  8 : nombreChiffres;
+	let nombres = Array.from({length:nombreChiffres}, () => alea16());
+	let n16 = nombres.map(x => Number(x).toString(16));//parseInt(x,16));//.join("");
+	//console.log(n16);
+	return `${n16.join("").padStart(nombreChiffres, 0)}`;
+	
+	// let nombre16 = Array.from({length:nombreChiffres}, () => alea16()).join(" ");
+	// let nombre = parseInt(nombre16, 16);
+	// let valeur = `${nombre}`.slice(0, nombreChiffres);
+	// console.log('nombreHexaaleatoire ', nombre16);
+	// return valeur.padStart(nombreChiffres,0);
     };
 
     const nombre = (nombreChiffres=8) => nombreHexaAleatoire(nombreChiffres);
@@ -372,25 +378,25 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
     const phrases = nombre => {
 	nombre = isNaN(nombre) ? 6 : nombre;
 	let retour = Array.from({length:nombre}, () => phrase());
-	return retour;
+	return [...retour];
     };
 
     const paragraphe = () => {
 	let iterations = aleaParagraphes();
 	let retour = Array.from({length:iterations}, () => phrase());
-	//return retour.join(" ");
-	return [...retour];
+	return retour.join(" ");
     };
     
     const paragraphes = nombre => {
 	nombre = isNaN(nombre) ? 1 : nombre;
-	return Array.from({length:nombre}, () => paragraphe());
+	return [...Array.from({length:nombre}, () => paragraphe())];
     };
 
-    const liste = nombre => {
+    const phraseMots = nombre => {
 	nombre = isNaN(nombre) ? 2 : nombre;
-	let retour = Array.from({length:nombre}, () => motAleatoire());
-	return formatagePhrase(retour);        
+	let temporaire = Array.from({length:nombre}, () => motAleatoire());
+	let retour = formatagePhrase(temporaire);
+	return `${retour.slice(0,1).toUpperCase()}${retour.slice(1)}`;
     };
 
     const nombreLettres = (nombre) => {
@@ -401,7 +407,7 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 
     return {
 	graineActuelle,
-	//liste,
+	phraseMots,
 	paragraphe, paragraphes,
 	phrase, phrases, 
 	mot, mots,

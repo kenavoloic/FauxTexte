@@ -22,33 +22,63 @@ const faux = new FauxTexte("Louison Bobet");
 
 ## Méthodes
 
-### Texte et nombre
-
-#### FauxTexte.mots(entier)
-Retourne un tableau de chaînes de caractères.
-
-```javascript
-const sixMots = faux.mots(6);
-```
+### Texte
 
 #### FauxTexte.mot()
 Retourne une chaîne de caractères.
-
 ```javascript
 const titre = faux.mot();
 ```
 
+#### FauxTexte.mots(entier)
+Retourne un tableau de chaînes de caractères.
+```javascript
+const sixMots = faux.mots(6);
+```
+
+#### FauxTexte.phrase()
+Retourne une chaîne de caractère.
+Toute phrase est ponctuée.  Elle commence par une capitale et  se termine soit par un point, un point d’interrogation ou un point d’exclamation. Sa longueur dépend du paramètre *mpp*, mots par phrase, paramètre défini dans le constructeur.
+```javascript
+const introduction = faux.phrase();
+```
+#### FauxTexte.phrases(entier)
+```javascript
+const presentation = faux.phrase(5);
+```
+
+#### FauxTexte.phraseMots(entier)
+Retourne une chaîne de caractère.
+Il s'agit d'une phrase ponctuée d'une longueur définie par le nombre entier.
+```javascript
+const resume = faux.phraseMots(250);
+```
+
+
+#### FauxTexte.paragraphe()
+Retourne une chaîne de caractères.
+
+Il s’agit d’un paragraphe constitué d’un ensemble de  phrases. Le nombre de phrases  d’un paragraphe est défini dans le constructeur, **ppp**, nombre de phrases par paragraphes. 
+```javascript
+const pitch = faux.paragraphe();
+```
+
 #### FauxTexte.paragraphes(entier)
-Retourne un tableau de chaînes de caractères. La première lettre de chaque chaîne est une majuscule.
+Retourne un tableau de chaînes de caractères. 
 ```javascript
 const treizeParagraphes = faux.paragraphes(13);
 ```
 
-#### FauxTexte.paragraphe()
-Retourne une chaîne de caractères. La première lettre du paragraphe est une majuscule.
+### Chiffres et nombres
+
+#### FauxTexte.nombreHexaAleatoire(entier)
+Retourne une chaine de caractère dont la longueur est fixée par le nombre entier. La longueur maximale est de 1024 caractères.
+
 ```javascript
-const pitch = faux.paragraphe();
+const motPasse = faux.nombreHexaAleatoire(180);
+
 ```
+
 
 #### FauxTexte.nombreLettres(entier)
 Retourne une chaîne de caractères.
@@ -144,7 +174,7 @@ Retourne un objet.
 ```javascript
 const {nom, booleen} = faux.nomVoie();
 ```
-Certaines dénomination de voie ne nécessitent pas de mention de type de voie. C'est le cas de *Grand’Rue* ou de *Grande Rue*. Dans de tels cas, la valeur de booleen est false.
+Certaines dénomination de voie ne nécessitent pas de mention de type de voie. C’est le cas de *Grand’Rue* ou de *Grande Rue*. Dans de tels cas, la valeur de booleen est false.
 
 #### FauxTexte.nomsVoies(entier)
 Retourne un tableau de chaînes de caractères.
@@ -196,7 +226,7 @@ const communesDepartements = faux.communesDepartement(domicile.numeroDepartement
 ```
 
 #### FauxTexte.communesRegion(regionIso)
-Retourne un tableau des noms de communes du département.
+Retourne un tableau des noms de communes d’une région.
 *regionIso* est de type chaîne de caractères.
 
 ```javascript
@@ -251,7 +281,7 @@ Retourne un générateur de valeurs comprises entre *entier1* et *entier2*.
 Retourne une valeur aléatoire comprise entre *0* et *1* et permet de réorganiser un tableau en indexant chacun de ses éléments.
 
 ```javascript
-const magasins = ['Bordeaux', 'Lille', 'Lyon',  'Marseille', 'Montpellier', 'Nantes', 'Nice',  'Paris', 'Rennes', 'Strasbourg', 'Toulouse'];
+const magasins = ["Bordeaux", "Lille", "Lyon",  "Marseille", "Montpellier", "Nantes", "Nice",  "Paris", "Rennes", "Strasbourg", "Toulouse"];
 const l1 = magasins.map(x => ({tri: faux.melangeur(), valeur:x})).sort((a,b) => a.tri - b.tri).map(x => x.valeur);
 console.log(l1);
 
@@ -266,6 +296,16 @@ console.log(l3);
 
 ```javascript
 const seed = faux.graineActuelle();
+```
+
+Il n'est pas possible de modifier la *seed*. Il faut instancier un nouvel objet *FauxTexte*. En voici une une illustration simplifiée :
+```javascript
+let fauxtexte1 = new FauxTexte('Louison Bobet');
+console.log(fauxtexte1.mots(3));
+
+fauxtexte1 = new FauxTexte('Roger Walkowiak');
+console.log(fauxtexte1.mots(3));
+
 ```
 
 ### Prédicats
