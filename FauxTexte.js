@@ -306,8 +306,8 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
     const iterationAlphanumeriques = aleaListe(alphanumeriques.length, nombrePremier);
     const aleaAlphanumeriques = () => alphanumeriques[iterationAlphanumeriques(generateurAlphanumeriques.next().value)];
 
-    const chaine = (longueur=8) => {
-	longueur = isNaN(longueur) ? 8 : (longueur < 0 || longueur > 36) ? 8 : longueur;
+    const chaineAlphanumerique = (longueur=8) => {
+	longueur = isNaN(longueur) ? 8 : (longueur < 0 || longueur > 1024) ? 8 : longueur;
 	let retour = Array.from({length:longueur}, () => aleaAlphanumeriques()).join("");
 	return retour;
     };
@@ -317,20 +317,12 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
     const {x:xHexadecimal, r:rHexadecimal} = dataRX();
     const generateurHexadecimal = Lmap(xHexadecimal, rHexadecimal);
     const iterationHexadecimal = iteration(16, nombrePremier);
-    const alea16 = () => iterationHexadecimal(generateurHexadecimal.next().value);
+    const alea16 = () => base16[iterationHexadecimal(generateurHexadecimal.next().value)];
 
     const nombreHexaAleatoire = (nombreChiffres=8) => {
 	nombreChiffres = isNaN(nombreChiffres) ? 8 : (nombreChiffres < 0 || nombreChiffres > 1024) ?  8 : nombreChiffres;
 	let nombres = Array.from({length:nombreChiffres}, () => alea16());
-	let n16 = nombres.map(x => Number(x).toString(16));//parseInt(x,16));//.join("");
-	//console.log(n16);
-	return `${n16.join("").padStart(nombreChiffres, 0)}`;
-	
-	// let nombre16 = Array.from({length:nombreChiffres}, () => alea16()).join(" ");
-	// let nombre = parseInt(nombre16, 16);
-	// let valeur = `${nombre}`.slice(0, nombreChiffres);
-	// console.log('nombreHexaaleatoire ', nombre16);
-	// return valeur.padStart(nombreChiffres,0);
+	return nombres.join("").padStart(nombreChiffres, 0);
     };
 
     const nombre = (nombreChiffres=8) => nombreHexaAleatoire(nombreChiffres);
@@ -407,13 +399,12 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 
     return {
 	graineActuelle,
-	phraseMots,
 	paragraphe, paragraphes,
 	phrase, phrases, 
-	mot, mots,
+	mot, mots, phraseMots,
 	majusculePremiereLettre,
 	nombre, nombres, nombresUniques,
-	nombreHexaAleatoire, chaine,
+	nombreHexaAleatoire, chaineAlphanumerique,
 	generateurListe, generateurValeur, generateurDatePlancherPlafond, generateurDateDepuis,
 	nombreLettres,
 	prenom, prenomMasculin, prenomFeminin, patronyme,
@@ -423,7 +414,7 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	typeVoie, typesVoies,
 	aleaCentaine, aleaMillier,
 	zeroUn,
-	nomVille, nomsVilles, nomVilleAleatoire,
+	nomVille, nomsVilles, //nomVilleAleatoire,
 	inseeVille,
 	ville, departementNom, communesDepartementales, communesRegionales, communes, rechercheCommune,
 	listeVilles,

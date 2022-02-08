@@ -54,7 +54,11 @@ Il s'agit d'une phrase ponctuée d'une longueur définie par le nombre entier.
 const resume = faux.phraseMots(250);
 ```
 
-
+#### FauxTexte.chaineAlphanumerique(entier)
+Retourne une chaîne de caractères d'une longueur déterminée par le nombre entier. La longueur maximale est de 1024 caractères.
+```javascript
+const referenceTransaction = faux.chaineAlphanumerique(160);
+```
 #### FauxTexte.paragraphe()
 Retourne une chaîne de caractères.
 
@@ -71,14 +75,20 @@ const treizeParagraphes = faux.paragraphes(13);
 
 ### Chiffres et nombres
 
+#### FauxTexte.zeroUn()
+Retourne *0* ou *1*.
+```javascript
+const civilite = faux.zeroUn() ? "Madame" : "Monsieur";
+```
+
 #### FauxTexte.nombreHexaAleatoire(entier)
 Retourne une chaine de caractère dont la longueur est fixée par le nombre entier. La longueur maximale est de 1024 caractères.
 
 ```javascript
-const motPasse = faux.nombreHexaAleatoire(180);
+const taille = 8;
+const idFournisseurs = Array.from({length:20}, () => faux.nombreHexaAleatoire(taille));
 
 ```
-
 
 #### FauxTexte.nombreLettres(entier)
 Retourne une chaîne de caractères.
@@ -101,11 +111,6 @@ Retourne une valeur entière comprise entre *0* et *999*.
 const kilometrages = Array.from({length:250}, () => faux.aleaMillier() * 1000);
 ```
 
-#### FauxTexte.zeroUn()
-Retourne *0* ou *1*.
-```javascript
-const civilite = faux.zeroUn() ? "Madame" : "Monsieur";
-```
 
 ### Noms propres
 
