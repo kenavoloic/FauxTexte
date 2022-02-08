@@ -82,7 +82,7 @@ const civilite = faux.zeroUn() ? "Madame" : "Monsieur";
 ```
 
 #### FauxTexte.nombreHexaAleatoire(entier)
-Retourne une chaine de caractère dont la longueur est fixée par le nombre entier. La longueur maximale est de 1024 caractères.
+Retourne une chaîne de caractère dont la longueur est fixée par le nombre entier. La longueur maximale est de 1024 caractères.
 
 ```javascript
 const taille = 8;
@@ -114,44 +114,48 @@ const kilometrages = Array.from({length:250}, () => faux.aleaMillier() * 1000);
 
 ### Noms propres
 
-#### FauxTexte.prenomsFeminins(entier)
+#### Prénoms
+
+##### FauxTexte.prenomsFeminins(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const mecaniciennes = faux.prenomsFeminins(10);
 ```
 
-#### FauxTexte.prenomFeminin()
+##### FauxTexte.prenomFeminin()
 Retourne une chaîne de caractères.
 ```javascript
 const prenomDirectrice = faux.prenomFeminin();
 ```
 
-#### FauxTexte.prenomsMasculins(entier)
+##### FauxTexte.prenomsMasculins(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const carrossiers = faux.prenomsMasculins(10);
 ```
 
-#### FauxTexte.prenomMasculin()
+##### FauxTexte.prenomMasculin()
 Retourne une chaîne de caractères. 
 ```javascript
 const prenomAssureur = faux.prenomMasculin();
 ```
 
-#### FauxTexte.prenom()
+##### FauxTexte.prenom()
 Retourne un objet *prenom*.
 ```javascript
 const {homme,femme} = faux.prenom();
 ```
 
-#### FauxTexte.patronyme()
+#### Patronymes 
+
+##### FauxTexte.patronyme()
 Retourne une chaîne de caractères.
 ```javascript
 const nomDeFamille = faux.patronyme();
 
 ```
 
-#### FauxTexte.patronymes(entier)
+##### FauxTexte.patronymes(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const nomsDeFamille = faux.patronymes(10);
@@ -160,34 +164,35 @@ const nomsDeFamille = faux.patronymes(10);
 
 ### Voirie
 
+#### Adresse
 
-#### FauxTexte.typeVoie()
+##### FauxTexte.typeVoie()
 Retourne une chaîne de caractères.
 ```javascript
 const voie = faux.typeVoie();
 ```
 
-#### FauxTexte.typesVoies(entier)
+##### FauxTexte.typesVoies(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const voies = faux.typesVoies(10);
 
 ```
 
-#### FauxTexte.nomVoie()
+##### FauxTexte.nomVoie()
 Retourne un objet.
 ```javascript
 const {nom, booleen} = faux.nomVoie();
 ```
 Certaines dénomination de voie ne nécessitent pas de mention de type de voie. C’est le cas de *Grand’Rue* ou de *Grande Rue*. Dans de tels cas, la valeur de booleen est false.
 
-#### FauxTexte.nomsVoies(entier)
+##### FauxTexte.nomsVoies(entier)
 Retourne un tableau de chaînes de caractères.
 ```javascript
 const nomsDeVoie = faux.nomsVoies(10);
 ```
 
-#### FauxTexte.adresse()
+##### FauxTexte.adresse()
 Retourne un objet *adresse*.
 ```javascript
 const domicile = faux.adresse();
@@ -198,7 +203,9 @@ const {numero, nom, booleen, type, chaine} = domicile;
 *chaine* adresse, chaîne de caractères.
 *booleen* false ou true. Cf *nomVoie*.
 
-#### FauxTexte.nomVille()
+#### Villes 
+
+##### FauxTexte.nomVille()
 Retourne un objet *ville*.
 ```javascript
 const domicile = faux.nomVille();
@@ -217,13 +224,13 @@ Chaînes de caractères :
 
 *departements* tableau des départements constituant la même région. Chaînes de caractères.
 
-#### FauxTexte.nomsVilles(entier)
+##### FauxTexte.nomsVilles(entier)
 Retourne un tableau d’objets *ville*.
 ```javascript
 const villesFournisseurs = faux.nomsVilles(20);
 ```
 
-#### FauxTexte.inseeVille(matriculeInsee)
+##### FauxTexte.inseeVille(matriculeInsee)
 Retourne l’objet *ville* correspondant au matricule INSEE de la commune. Si le matricule est erronné, l’objet *ville* retourné sera celui de la ville de bordeaux. Seules les communes françaises les plus peuplées sont référencées.
 ```javascript
 const bordeaux = faux.inseeVille('33063');
@@ -232,44 +239,37 @@ const gevreyChambertin = faux.inseeVille('21295');
 const floracTroisRivieres = faux.inseeVille('48061');
 ```
 
-#### FauxTexte.listeVilles()
+##### FauxTexte.listeVilles()
 Retourne un tableau contenant les matricules INSEE des communes référencées.
 ```javascript
 const listeDesCommunes = faux.listeVilles();
 console.log(listeDescommunes.length);
 ```
 
-#### FauxTexte.listeDepartements()
+#### Départements
+
+##### FauxTexte.listeDepartements()
 Retourne un tableau d'objets.
 ```javascript
 const listeDepartements = faux.listeDepartements();
 const {depCode, depNom} = listeDepartements[0];
 ```
 
-
-#### FauxTexte.listeRegions()
-Retourne un tableau d'objets.
-```javascript
-const listeRegions = faux.listeRegions();
-const {regionNom, regionIso} = listeRegions[0];
-```
-
-
-#### FauxTexte.departementNom(chaine)
-Retourne une chaine. 
+##### FauxTexte.departementNom(chaine)
+Retourne une chaîne. 
 ```javascript
 const vienne = faux.departementNom('86');
 const corseDuSud = faux.departementNom('2a');
 const hauteCorse = faux.departementNom('2b');
 ```
 
-#### FauxTexte.communesDepartementales(chaine)
+##### FauxTexte.communesDepartementales(chaine)
 Retourne un tableau de chaînes.
 ```javascript
 const communes2a = faux.communesDepartementales('2a');
 ```
 
-#### FauxTexte.communesDepartement(departement)
+##### FauxTexte.communesDepartement(departement)
 Retourne un tableau des noms de communes du département.
 *departement* est de type chaîne de caractères.
 ```javascript
@@ -277,7 +277,16 @@ const domicile = nomVille();
 const communesDepartements = faux.communesDepartement(domicile.numeroDepartement);
 ```
 
-#### FauxTexte.communesRegion(regionIso)
+#### Régions 
+
+##### FauxTexte.listeRegions()
+Retourne un tableau d'objets.
+```javascript
+const listeRegions = faux.listeRegions();
+const {regionNom, regionIso} = listeRegions[0];
+```
+
+##### FauxTexte.communesRegion(regionIso)
 Retourne un tableau des noms de communes d’une région.
 *regionIso* est de type chaîne de caractères.
 
