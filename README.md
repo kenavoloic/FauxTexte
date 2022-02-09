@@ -198,8 +198,8 @@ Retourne un objet *adresse*.
 const domicile = faux.adresse();
 const {numero, nom, booleen, type, chaine} = domicile;
 ```
-*numero* numéro de voie, chaîne de caractères.  
-*nom* nom de voie, chaîne de caractères.  
+*numero* numéro de voie, chaîne de caractères.
+*nom* nom de voie, chaîne de caractères.
 *chaine* adresse, chaîne de caractères.
 *booleen* false ou true. Cf *nomVoie*.
 
@@ -209,20 +209,24 @@ const {numero, nom, booleen, type, chaine} = domicile;
 Retourne un objet *ville*.
 ```javascript
 const domicile = faux.nomVille();
-const {nom, codeInsee, codeCommune, codePostal, numeroDepartement, nomDepartement, nomRegion, isoRegion, regionAlphabetique, departements} = domicile;
+const {nom, codeInsee, codeCommune, codePostal, numeroDepartement, nomDepartement, nomRegion} = domicile;
 ```
 Chaînes de caractères :
 * *nom*
 * *codeInsee*
-* *codeCommune*
 * *codePostal* 
+* *codeCommune*
 * *numeroDepartement*
 * *nomDepartement*
 * *nomRegion*
 * *a*
 * *pays*
 
-*departements* tableau des départements constituant la même région. Chaînes de caractères.
+La propriété *a* indique les cas où le nom de la commune commence par l’un des articles suivants : *Le*, *La*, *Les* ou *L’*. Dans de tels cas le nom de la commune est amené à changer selon le contexte grammatical dans lequel il est employé. 
+
+*Le Mans* deviendra *au Mans*, *Le Havre* deviendra *au Havre*, *Les Sables d’Olonne* deviendra *aux Sables d’Olonne*, *L’Île-Rousse* deviendra *à L’Île-Rousse* dans les phrases suivantes.
+
+Je suis né *au Mans*. Je vis *au Havre*. Je passe mes vacances *aux Sables d’Olonne*. J’irai *à L’Île-Rousse* la semaine prochaine.
 
 ##### FauxTexte.nomsVilles(entier)
 Retourne un tableau d’objets *ville*.
@@ -369,8 +373,9 @@ console.log(fauxtexte1.mots(3));
 ```
 
 ### Prédicat
-Faux.communes(chaine)
-Faux.communes(tableau)
+Faux.commune_p(chaine)
+Faux.commune_p(tableau)
+
 Retourne une chaine ou un tableau de chaînes.
 Valide l'existence du code INSEE d'une commune. S'il n'existe pas, c'est celui de la ville de Bordeaux, *33063*, qui est retourné.
 ```javascript

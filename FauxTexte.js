@@ -11,7 +11,7 @@ import {
     inseePostal,
     communeInsee,
     departementNom,
-    communes,
+    communes as commune_p,
     communesRegionales,
     communesDepartementales,
     listeDepartements as _listeDepartements,
@@ -420,6 +420,7 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	adresse,
 
 	nomVille, nomsVilles, inseeVille, listeVilles,
+	commune_p, communes, // à supprimer lors de la prochaine maj
 	
 	listeDepartements, departementNom, communesDepartementales,
 
@@ -431,11 +432,9 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	melangeur,
 	graineActuelle,
 
-	//majusculePremiereLettre,
 	//nombre, nombres, nombresUniques, 
 	//nomVoieAleatoire,
-	//nomVilleAleatoire,
-	ville, 	communes, rechercheCommune,	
+	ville, 	 rechercheCommune,	
 	//securiteSociale, securiteSociale99
     };
 };
