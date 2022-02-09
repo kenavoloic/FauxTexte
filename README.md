@@ -368,4 +368,16 @@ console.log(fauxtexte1.mots(3));
 
 ```
 
-### Prédicats
+### Prédicat
+Faux.communes(chaine)
+Faux.communes(tableau)
+Retourne une chaine ou un tableau de chaînes.
+Valide l'existence du code INSEE d'une commune. S'il n'existe pas, c'est celui de la ville de Bordeaux, *33063*, qui est retourné.
+```javascript
+const liste = ['31555','21295','48061','31556']; // Le dernier code est invalide donc il sera remplacé par *33063*.
+const listeValidee = faux.communes(liste);
+
+const singleton = '33063';
+const codeValide = faux.communes(singleton);
+```
+

@@ -431,9 +431,9 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 	melangeur,
 	graineActuelle,
 
-	majusculePremiereLettre,
-	nombre, nombres, nombresUniques, 
-	nomVoieAleatoire,
+	//majusculePremiereLettre,
+	//nombre, nombres, nombresUniques, 
+	//nomVoieAleatoire,
 	//nomVilleAleatoire,
 	ville, 	communes, rechercheCommune,	
 	//securiteSociale, securiteSociale99
