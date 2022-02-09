@@ -250,6 +250,14 @@ const listeDesCommunes = faux.listeVilles();
 console.log(listeDescommunes.length);
 ```
 
+##### FauxTexte.rechercheCommune(chaine)
+Retourne un tableau d’objets contenant le nom des communes dont le nom commence par la chaîne. Chaque object à deux propriétés,  *insee* et *nom*. 
+```javascript
+const liste = faux.rechercheCommune('bordea');
+const {insee, nom} = liste[0];
+console.log(liste);
+```
+
 #### Départements
 
 ##### FauxTexte.listeDepartements()
