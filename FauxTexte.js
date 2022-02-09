@@ -403,27 +403,39 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 
 
     return {
-	graineActuelle,
+	mot, mots, phrase, phrases,
+	phraseMots, chaineAlphanumerique,
 	paragraphe, paragraphes,
-	phrase, phrases, 
-	mot, mots, phraseMots,
-	majusculePremiereLettre,
-	nombre, nombres, nombresUniques, melangeur,
-	nombreHexaAleatoire, chaineAlphanumerique,
-	generateurListe, generateurValeur, generateurDatePlancherPlafond, generateurDateDepuis,
-	nombreLettres,
-	prenom, prenomMasculin, prenomFeminin, patronyme,
-	prenomsMasculins, prenomsFeminins, patronymes,
-	adresse, nomVoie, nomsVoies,
-	nomVoieAleatoire,
-	typeVoie, typesVoies,
+	
+	zeroUn,	nombreHexaAleatoire, nombreLettres,
 	aleaCentaine, aleaMillier,
-	zeroUn,
-	nomVille, nomsVilles, //nomVilleAleatoire,
-	inseeVille, ville,
-	departementNom, communesDepartementales, communesRegionales, communes, rechercheCommune,
-	listeVilles, listeDepartements, listeRegions,
-	jourCalendaire,
+
+	prenomsFeminins, prenomFeminin,
+	prenomsMasculins, prenomMasculin,
+	prenom,
+	patronymes, patronyme,
+
+	typeVoie, typesVoies,
+	nomVoie, nomsVoies,
+	adresse,
+
+	nomVille, nomsVilles, inseeVille, listeVilles,
+	
+	listeDepartements, departementNom, communesDepartementales,
+
+	listeRegions, communesRegionales,
+
+	generateurDatePlancherPlafond, generateurDateDepuis, jourCalendaire,
+	
+	generateurListe, generateurValeur,
+	melangeur,
+	graineActuelle,
+
+	majusculePremiereLettre,
+	nombre, nombres, nombresUniques, 
+	nomVoieAleatoire,
+	//nomVilleAleatoire,
+	ville, 	communes, rechercheCommune,	
 	//securiteSociale, securiteSociale99
     };
 };
