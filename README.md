@@ -49,13 +49,13 @@ const presentation = faux.phrase(5);
 
 #### FauxTexte.phraseMots(entier)
 Retourne une chaîne de caractère.
-Il s'agit d'une phrase ponctuée d'une longueur définie par le nombre entier.
+Il s’agit d’une phrase ponctuée d’une longueur définie par le nombre entier.
 ```javascript
 const resume = faux.phraseMots(250);
 ```
 
 #### FauxTexte.chaineAlphanumerique(entier)
-Retourne une chaîne de caractères d'une longueur déterminée par le nombre entier. La longueur maximale est de 1024 caractères.
+Retourne une chaîne de caractères d’une longueur déterminée par le nombre entier. La longueur maximale est de 1024 caractères.
 ```javascript
 const referenceTransaction = faux.chaineAlphanumerique(160);
 ```
@@ -166,13 +166,13 @@ const nomsDeFamille = faux.patronymes(10);
 Retourne une chaîne de caractères.
 *genre* est de type chaîne, soit "1" soit "2".
 *data* est un objet javascript.
-*ville* est l'objet *ville* décrit ci-après.
+*ville* est l’objet *ville* décrit ci-après.
 *ordre* entier de 1 à 999.
 
 ```javascript
 const genre = "1";
 const date = new Date();
-const ville = ville('33063');
+const ville = faux.ville('33063');
 const ordre = 1;
 const numeroSS = faux.securiteSociale(genre, date, ville, ordre);
 console.log(numeroSS);
@@ -236,6 +236,7 @@ Chaînes de caractères :
 * *numeroDepartement*
 * *nomDepartement*
 * *nomRegion*
+* *isoRegion*
 * *a*
 * *pays*
 
@@ -260,6 +261,13 @@ const gevreyChambertin = faux.inseeVille('21295');
 const floracTroisRivieres = faux.inseeVille('48061');
 ```
 
+##### FauxTexte.ville(matriculeInsee)
+Retourne l’objet *ville* correspondant au matricule INSEE de la commune.
+```javascript
+const mauguio = faux.ville('34154');
+console.log(mauguio);
+```
+
 ##### FauxTexte.listeVilles()
 Retourne un tableau contenant les matricules INSEE des communes référencées.
 ```javascript
@@ -268,7 +276,7 @@ console.log(listeDescommunes.length);
 ```
 
 ##### FauxTexte.rechercheCommune(chaine)
-Retourne un tableau d’objets contenant le nom des communes dont le nom commence par la chaîne. Chaque object à deux propriétés,  *insee* et *nom*. 
+Retourne un tableau d’objets contenant le nom des communes dont le nom commence par la chaîne. Chaque objet à deux propriétés,  *insee* et *nom*. 
 ```javascript
 const liste = faux.rechercheCommune('bordea');
 const {insee, nom} = liste[0];
@@ -278,7 +286,7 @@ console.log(liste);
 #### Départements
 
 ##### FauxTexte.listeDepartements()
-Retourne un tableau d'objets.
+Retourne un tableau d’objets.
 ```javascript
 const listeDepartements = faux.listeDepartements();
 const {depCode, depNom} = listeDepartements[0];
@@ -309,7 +317,7 @@ const communesDepartements = faux.communesDepartement(domicile.numeroDepartement
 #### Régions 
 
 ##### FauxTexte.listeRegions()
-Retourne un tableau d'objets.
+Retourne un tableau d’objets.
 ```javascript
 const listeRegions = faux.listeRegions();
 const {regionNom, regionIso} = listeRegions[0];
@@ -387,7 +395,7 @@ console.log(l3);
 const seed = faux.graineActuelle();
 ```
 
-Il n'est pas possible de modifier la *seed*. Il faut instancier un nouvel objet *FauxTexte*. En voici une une illustration simplifiée :
+Il n’est pas possible de modifier la *seed*. Il faut instancier un nouvel objet *FauxTexte*. En voici une une illustration simplifiée :
 ```javascript
 let fauxtexte1 = new FauxTexte('Louison Bobet');
 console.log(fauxtexte1.mots(3));
@@ -402,7 +410,7 @@ Faux.commune_p(chaine)
 Faux.commune_p(tableau)
 
 Retourne une chaine ou un tableau de chaînes.
-Valide l'existence du code INSEE d'une commune. S'il n'existe pas, c'est celui de la ville de Bordeaux, *33063*, qui est retourné.
+Valide l’existence du code INSEE d’une commune. S’il n’existe pas, c’est celui de la ville de Bordeaux, *33063*, qui est retourné.
 ```javascript
 const liste = ['31555','21295','48061','31556']; // Le dernier code est invalide donc il sera remplacé par *33063*.
 const listeValidee = faux.communes(liste);
