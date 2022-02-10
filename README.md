@@ -162,6 +162,23 @@ const nomsDeFamille = faux.patronymes(10);
 
 ```
 
+##### FauxTexte.securiteSociale(genre, date, ville, ordre)
+Retourne une chaîne de caractères.
+*genre* est de type chaîne, soit "1" soit "2".
+*data* est un objet javascript.
+*ville* est l'objet *ville* décrit ci-après.
+*ordre* entier de 1 à 999.
+
+```javascript
+const genre = "1";
+const date = new Date();
+const ville = ville('33063');
+const ordre = 1;
+const numeroSS = faux.securiteSociale(genre, date, ville, ordre);
+console.log(numeroSS);
+```
+
+
 ### Voirie
 
 #### Adresse

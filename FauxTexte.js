@@ -434,8 +434,9 @@ const FauxTexte = function(seed, mpp={minimum:6, maximum:12}, ppp={minimum:3, ma
 
 	//nombre, nombres, nombresUniques, 
 	//nomVoieAleatoire,
-	ville, 	 rechercheCommune,	
-	//securiteSociale, securiteSociale99
+	ville, 	 rechercheCommune,
+	majusculePremiereLettre
+	securiteSociale, //securiteSociale99
     };
 };
 
