@@ -306,12 +306,11 @@ Retourne un tableau de chaînes.
 const communes2a = faux.communesDepartementales('2a');
 ```
 
-##### FauxTexte.communesDepartement(departement)
-Retourne un tableau des noms de communes du département.
-*departement* est de type chaîne de caractères.
+
+##### FauxTexte.communesDepartementales(tableau)
+Retourne un tableau de chaînes.
 ```javascript
-const domicile = nomVille();
-const communesDepartements = faux.communesDepartement(domicile.numeroDepartement);
+const communes2a = faux.communesDepartementales(['2b', '33']);
 ```
 
 #### Régions 
@@ -323,14 +322,22 @@ const listeRegions = faux.listeRegions();
 const {regionNom, regionIso} = listeRegions[0];
 ```
 
-##### FauxTexte.communesRegion(regionIso)
+##### FauxTexte.communesRegionales(regionIso)
 Retourne un tableau des noms de communes d’une région.
 *regionIso* est de type chaîne de caractères.
 
 ```javascript
-const domicile = nomVille();
-const communesRegionales = faux.communesRegionales(domicile.isoRegion);
+const idf = faux.communesRegionales('fr-idf');
 ```
+
+##### FauxTexte.communesRegionales(tableau)
+Retourne un tableau des noms de communes d’une région.
+*regionIso* est de type chaîne de caractères.
+
+```javascript
+const ultramarines = faux.communesRegionales(['fr-gua','fr-guf','fr-lre','fr-mtq','fr-may']);
+```
+
 
 ### Dates
 #### FauxTexte.generateurDatePlancherPlafond(chaine1, chaine2)
