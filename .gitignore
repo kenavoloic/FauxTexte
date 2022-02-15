@@ -1,2 +1,3 @@
 node_modules/
 ztank/
+*.[0-9]+
