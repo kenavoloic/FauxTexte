@@ -1,12 +1,12 @@
 import arboretum from './arboretum.js';
-import olympiens from './olympiens.js';
-import personnalites from './personnalites.js';
-import nobel from './nobel.js';
-import tdf from './tdf.js';
-import fields from './fields.js';
 import bordeaux from './bordeaux.js';
 import capitales from './capitales.js';
+import fields from './fields.js';
 import hydro from './hydro.js';
+import nobel from './nobel.js';
+import olympiens from './olympiens.js';
+import personnalites from './personnalites.js';
+import tdf from './tdf.js';
 
 const types = ["rue","place","cours","quai","boulevard","avenue","allée","voie","passage", "route", "impasse", "chemin", "square"];
 // const bdx = [		
@@ -481,7 +481,7 @@ const odonymiques = [
     ...bordeaux,
     ...capitales,
     ...fields,
-    ...guyane,
+    //...guyane,
     ...hydro,
     ...nobel,
     ...olympiens,
