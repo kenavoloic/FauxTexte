@@ -1,13 +1,14 @@
-import {types, odonymiques} from './voirie/index.js';
-export {types, odonymiques};
-// import arboretum from './arboretum.js';
-// import olympiens from './olympiens.js';
-// import personnalites from './personnalites.js';
-// import nobel from './nobel.js';
-// import tdf from './tdf.js';
-// import fields from './fields.js';
+import arboretum from './arboretum.js';
+import olympiens from './olympiens.js';
+import personnalites from './personnalites.js';
+import nobel from './nobel.js';
+import tdf from './tdf.js';
+import fields from './fields.js';
+import bordeaux from './bordeaux.js';
+import capitales from './capitales.js';
+import hydro from './hydro.js';
 
-// const types = ["rue","place","cours","quai","boulevard","avenue","allée","voie","passage", "route", "impasse", "chemin", "square"];
+const types = ["rue","place","cours","quai","boulevard","avenue","allée","voie","passage", "route", "impasse", "chemin", "square"];
 // const bdx = [		
 //     {nom:"Ampère", booleen: true},
 //     {nom:"Ausone", booleen: true},
@@ -173,25 +174,23 @@ export {types, odonymiques};
 //     {nom:"Ça-va", booleen: true}
 // ];
 
-// const choixPersonnel = [
-//     {nom:"Claude Debussy", booleen: true},
-//     {nom:"Gabriel Fauré", booleen: true},
-//     {nom:"Hector Berlioz", booleen: true},
-//     {nom:"Henri Dunant ", booleen: true},
-//     {nom:"Jean Jaurès", booleen: true},
-//     {nom:"Jean Moulin", booleen: true},
-//     {nom:"John Coltrane", booleen: true},
-//     {nom:"Marin Marais", booleen: true},
-//     {nom:"Maupassant", booleen: true},
-//     {nom:"Pasteur", booleen: true},
-//     {nom:"Émile Zola", booleen: true},
-//     {nom:"du chant des vagues", booleen: true},
-//     {nom:"du Sénégal", booleen: true},
-//     {nom:"Satie", booleen: true},
-//     {nom:"Victor-Hugo", booleen: true},
-
-
-// ];
+const choixPersonnel = [
+    {nom:"Claude Debussy", booleen: true},
+    {nom:"Gabriel Fauré", booleen: true},
+    {nom:"Hector Berlioz", booleen: true},
+    {nom:"Henri Dunant ", booleen: true},
+    {nom:"Jean Jaurès", booleen: true},
+    {nom:"Jean Moulin", booleen: true},
+    {nom:"John Coltrane", booleen: true},
+    {nom:"Marin Marais", booleen: true},
+    {nom:"Maupassant", booleen: true},
+    {nom:"Pasteur", booleen: true},
+    {nom:"Émile Zola", booleen: true},
+    {nom:"du chant des vagues", booleen: true},
+    {nom:"du Sénégal", booleen: true},
+    {nom:"Satie", booleen: true},
+    {nom:"Victor-Hugo", booleen: true},
+];
 
 // //https://fr.wikipedia.org/wiki/Liste_des_fleuves_de_France
 // const fleuvesMetro = [
@@ -475,7 +474,18 @@ export {types, odonymiques};
 //     {nom:"de la baie de Txingudi", booleen: true}
 // ];
 
-// //const odonymiques = [...bdx, ...fleuvesMetro, ...guyane, ...reunion, ...guadeloupe, ...estuaires];
-// const odonymiques = [...bdx, ...fleuvesMetro, ...guyane, ...arboretum, ...olympiens, ...personnalites, ...nobel, ...fields, ...tdf];
-
-//export {types, odonymiques};
+//const odonymiques = [...bdx, ...fleuvesMetro, ...guyane, ...reunion, ...guadeloupe, ...estuaires];
+//const odonymiques = [...bordeaux, ...fleuvesMetro, ...guyane, ...arboretum, ...olympiens, ...personnalites, ...nobel, ...fields, ...tdf, ...capitales];
+const odonymiques = [
+    ...arboretum,
+    ...bordeaux,
+    ...capitales
+    ...fields,
+    ...fleuvesMetro,
+    ...guyane,
+    ...nobel,
+    ...olympiens,
+    ...personnalites,
+    ...tdf
+];
+export {types, odonymiques};
