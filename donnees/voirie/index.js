@@ -479,7 +479,7 @@ const choixPersonnel = [
 const odonymiques = [
     ...arboretum,
     ...bordeaux,
-    ...capitales
+    ...capitales,
     ...fields,
     ...fleuvesMetro,
     ...guyane,
